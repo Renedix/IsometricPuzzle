@@ -10,13 +10,21 @@ using PathFinding;
  */
 public class GameObjectContainer : MonoBehaviour {
 
+
+    public static GameObjectContainer Instance { get; private set; }
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     public int gridSize = 15;
 
     public List<GameObject> platforms;
+    public List<Coordinate> keyPlatformCoordinates;
     public List<GameObject> movableObjects;
     public List<GameObject> unmovableObjects;
     public GameObject shadowBall;
-
 
     // Use this for initialization
     void Start () {
@@ -26,6 +34,8 @@ public class GameObjectContainer : MonoBehaviour {
         movableObjects = new List<GameObject>();
 
         unmovableObjects = new List<GameObject>();
+
+        keyPlatformCoordinates = new List<Coordinate>();
 
         createGrid();
 
@@ -43,7 +53,6 @@ public class GameObjectContainer : MonoBehaviour {
         addCubeToCoordinate(8, 9);
 
         addShadowBallToCoordinate(1, 1);
-
     }
 
     private void createGrid()
@@ -180,6 +189,10 @@ public class GameObjectContainer : MonoBehaviour {
 
         platform.AddComponent<PlatformController>();
         platforms.Add(platform);
+        if (keyPlatform)
+        {
+            keyPlatformCoordinates.Add(new Coordinate(platform.transform.position));
+        }
         
     }
 

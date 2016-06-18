@@ -10,6 +10,7 @@ using System;
 public class GridHighlighter : MonoBehaviour {
 
 	public static GridHighlighter Instance { get; private set; }
+
     void Awake()
     {
         Instance = this;
@@ -20,7 +21,7 @@ public class GridHighlighter : MonoBehaviour {
 
     void Start()
     {
-        this.platforms = GetComponent<GameObjectContainer>().platforms;
+        this.platforms = GameObjectContainer.Instance.platforms;
     }
 
     public void clearCoordinates()

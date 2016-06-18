@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 using PathFinding;
 using System.Collections.Generic;
+using System;
 
 public class PlatformController : MonoBehaviour {
 
     PlayerController playerController;
     GameObject shadowBall;
     GameObjectContainer gameObjects;
+    public Material floorHighlightMaterial;
 
     void Start()
     {
-        playerController = GameObject.Find("Main Camera").GetComponent<PlayerController>();
-        gameObjects = GameObject.Find("Main Camera").GetComponent<GameObjectContainer>();
+        playerController = PlayerController.Instance;
+        gameObjects = GameObjectContainer.Instance;
         shadowBall = gameObjects.shadowBall;
-
     }
 
     void OnMouseOver()
     {
         GridHighlighter.Instance.clearCoordinates();
+
+        Console.Write("made it here");
 
         List<GameObject> platformsToHighlight = null;
 

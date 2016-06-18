@@ -6,14 +6,14 @@ using PathFinding;
 public class BallController : MonoBehaviour {
 
     Material unhighlightedMaterial;
-    public Material highlightMaterial;
+    public Material floorHighlightMaterial;
     PlayerController playerController;
     GameObjectContainer gameObjects;
 
     void Start()
     {
-        playerController = GameObject.Find("Main Camera").GetComponent<PlayerController>();
-        gameObjects = GameObject.Find("Main Camera").GetComponent<GameObjectContainer>();
+        playerController = PlayerController.Instance;
+        gameObjects = GameObjectContainer.Instance;
     }
 
     void OnMouseOver()
@@ -29,8 +29,7 @@ public class BallController : MonoBehaviour {
             platformsToHighlight = playerController.getBallMovementModeCoordinates(GridHighlighter.Instance.BallMovementModeTargetBall.transform.position);
 
             // The platforms the user can move to now it is in movement mode
-            GridHighlighter.Instance.setPlatforms(platformsToHighlight, MaterialContainer.Instance.FloorHighlightMaterial);
-
+            GridHighlighter.Instance.setPlatforms(platformsToHighlight, floorHighlightMaterial);
 
             // If the user is overing over a platform that they can move too..
             GameObject selectedPlatform = gameObjects.getPlatform(new Coordinate(this.transform.position));

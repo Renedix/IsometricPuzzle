@@ -2,8 +2,16 @@
 using System.Collections;
 using PathFinding;
 using System.Collections.Generic;
+using System;
 
 public class PlayerController : MonoBehaviour {
+
+    public static PlayerController Instance { get; private set; }
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     GameObject player;
     static bool movingPlayer;
@@ -23,21 +31,12 @@ public class PlayerController : MonoBehaviour {
     GameObjectContainer gameObjects;
     private int gridSize;
 
-    List<Coordinate> keyplatformCoordinates;
-
     // Use this for initialization
     void Start () {
         player = GameObject.Find("player");
         movingPlayer = false;
 
-        gameObjects = GetComponent<GameObjectContainer>();
-
-        keyplatformCoordinates = new List<Coordinate>();
-        gameObjects.platforms.FindAll(x => x.name.Contains("key")).ForEach(delegate(GameObject item)
-        {
-            keyplatformCoordinates.Add(new Coordinate(item.transform.position));
-        });
-
+        gameObjects = GameObjectContainer.Instance;
     }
 	
 	void Update () {
@@ -46,7 +45,7 @@ public class PlayerController : MonoBehaviour {
         if (gameIsComplete())
         {
             // Handle end of game
-            return;
+            //return;
         }
 
         // User left clicked
@@ -77,7 +76,7 @@ public class PlayerController : MonoBehaviour {
         });
 
         // If there is a key platform that doesn't have a ball on it
-        if (keyplatformCoordinates.Exists(x => !movableObjectCoordinates.Contains(x)))
+        if (GameObjectContainer.Instance.keyPlatformCoordinates.Exists(x => !movableObjectCoordinates.Contains(x)))
         {
             // Game is not over!
             return false;
