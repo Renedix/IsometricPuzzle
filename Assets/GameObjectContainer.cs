@@ -213,14 +213,14 @@ public class GameObjectContainer : MonoBehaviour {
 
     private void addPlayer(int x, int z)
     {
-        GameObject player = GameObject.Find("player");
+        GameObject player = GameObject.Find("Player");
         //player.AddComponent<BoxCollider>();
         //player.AddComponent<Rigidbody>();
         player.transform.position = new Vector3(x, 2, z);
         player.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         player.GetComponent<Renderer>().material = MaterialContainer.Instance.PlayerMaterial;
         float scale = 2f;
-        player.name = "player";
+        player.name = "Player";
         player.transform.localScale = new Vector3(scale, scale/2, scale);
     }
 

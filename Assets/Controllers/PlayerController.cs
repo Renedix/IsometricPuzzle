@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        player = GameObject.Find("player");
+        player = GameObject.Find("Player");
         movingPlayer = false;
 
         gameObjects = GameObjectContainer.Instance;
@@ -269,7 +269,7 @@ public class PlayerController : MonoBehaviour {
             blockedCoordinates.Add(new Coordinate(movableObject.transform.position));
         }
 
-        CollisionMap map = new CollisionMap(10, 10, playerCoordinate, clickCoordinate);
+        CollisionMap map = new CollisionMap(GameObjectContainer.Instance.gridSize, GameObjectContainer.Instance.gridSize, playerCoordinate, clickCoordinate);
 
         // Add coordinates to the collision map
         foreach (Coordinate coord in blockedCoordinates)

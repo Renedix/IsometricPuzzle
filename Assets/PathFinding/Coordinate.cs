@@ -115,13 +115,13 @@ namespace PathFinding
 
         public static int cellToCoordinate(int val)
         {
-            return val - (10 - (val - 1));
+            return val - (GameObjectContainer.Instance.gridSize - (val - 1));
         }
 
         public static int coordinateToCell(float val)
         {
             int roundedVal = (int)Mathf.Round(val);
-            return (int)(roundedVal + 10) - ((int)Mathf.Round((roundedVal + 10) / 2));
+            return (int)(roundedVal + GameObjectContainer.Instance.gridSize) - ((int)Mathf.Round((roundedVal + GameObjectContainer.Instance.gridSize) / 2));
         }
     }
 }
