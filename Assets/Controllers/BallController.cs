@@ -6,7 +6,6 @@ using PathFinding;
 public class BallController : MonoBehaviour {
 
     Material unhighlightedMaterial;
-    public Material floorHighlightMaterial;
     PlayerController playerController;
     GameObjectContainer gameObjects;
 
@@ -29,7 +28,7 @@ public class BallController : MonoBehaviour {
             platformsToHighlight = playerController.getBallMovementModeCoordinates(GridHighlighter.Instance.BallMovementModeTargetBall.transform.position);
 
             // The platforms the user can move to now it is in movement mode
-            GridHighlighter.Instance.setPlatforms(platformsToHighlight, floorHighlightMaterial);
+            GridHighlighter.Instance.setPlatforms(platformsToHighlight, MaterialContainer.Instance.FloorHighlightMaterial);
 
             // If the user is overing over a platform that they can move too..
             GameObject selectedPlatform = gameObjects.getPlatform(new Coordinate(this.transform.position));

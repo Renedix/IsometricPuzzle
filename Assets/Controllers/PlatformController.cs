@@ -8,7 +8,6 @@ public class PlatformController : MonoBehaviour {
     PlayerController playerController;
     GameObject shadowBall;
     GameObjectContainer gameObjects;
-    public Material floorHighlightMaterial;
 
     void Start()
     {
@@ -20,8 +19,6 @@ public class PlatformController : MonoBehaviour {
     void OnMouseOver()
     {
         GridHighlighter.Instance.clearCoordinates();
-
-        Console.Write("made it here");
 
         List<GameObject> platformsToHighlight = null;
 

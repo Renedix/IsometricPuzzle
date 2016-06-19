@@ -154,7 +154,6 @@ GameObject:
   - 92: {fileID: 846228648}
   - 124: {fileID: 846228647}
   - 81: {fileID: 846228646}
-  - 114: {fileID: 846228651}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -230,12 +229,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &846228651
+--- !u!1 &1097401616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1097401618}
+  - 114: {fileID: 1097401617}
+  m_Layer: 0
+  m_Name: MaterialContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1097401617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 846228645}
+  m_GameObject: {fileID: 1097401616}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02de413a2834f1b45837c0bf231e9d3e, type: 3}
@@ -255,6 +270,19 @@ MonoBehaviour:
     type: 2}
   KeyFloorMaterial: {fileID: 2100000, guid: e593f983da4700249a7de9f48a51cfdb, type: 2}
   DeactiveMaterial: {fileID: 2100000, guid: 63113b8af0d320249b4547d4ccb06789, type: 2}
+--- !u!4 &1097401618
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097401616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1250859086
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bf2648702b8434987e03e3aed56629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorHighlightMaterial: {fileID: 0}
 --- !u!114 &1325525119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,8 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bbb6a36b4cf224aa3295ebe8da3de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorHighlightMaterial: {fileID: 2100000, guid: 25699594761562844b10ecc32167cf8d,
-    type: 2}
 --- !u!114 &1325525120
 MonoBehaviour:
   m_ObjectHideFlags: 0
